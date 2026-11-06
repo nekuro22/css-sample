@@ -238,14 +238,18 @@
   }
 
   a {
-    color: var(--color-primary);
+    color: var(--color-text);
     text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, currentcolor 35%, transparent);
     text-underline-offset: 0.2em;
-    transition: color var(--transition-fast);
+    transition:
+      color var(--transition-fast),
+      text-decoration-color var(--transition-fast);
   }
 
   a:hover {
-    color: var(--color-primary-hover);
+    color: var(--color-primary);
+    text-decoration-color: currentcolor;
   }
 
   code,
@@ -373,6 +377,7 @@
   :where(nav) :is(ul, ol) {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: var(--space-1) var(--space-6);
   }
 
@@ -380,10 +385,21 @@
     margin: 0;
   }
 
+  /* Überschrift in der Navigation = Titel/Marke links, Links rechts */
+  :where(nav li:has(> :is(h1, h2, h3))) {
+    margin-inline-end: auto;
+  }
+
+  :where(nav) :is(h1, h2, h3) {
+    margin: 0;
+    font-size: var(--font-size-xl);
+    letter-spacing: -0.01em;
+  }
+
   :where(nav) a {
     padding-block: var(--space-1);
     font-weight: var(--font-weight-medium);
-    color: var(--color-text-muted);
+    color: var(--color-text);
     text-decoration: none;
     background: linear-gradient(currentcolor, currentcolor) 0 100% / 0 2px no-repeat;
     transition:
@@ -394,6 +410,16 @@
   :where(nav) a:is(:hover, :focus-visible, [aria-current]) {
     color: var(--color-primary);
     background-size: 100% 2px;
+  }
+
+  /* Kopfbereich mit Navigation wird zur fixierten Leiste mit Milchglas */
+  :where(body > header:has(> nav)) {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: var(--z-sticky);
+    padding-block: var(--space-3);
+    background-color: color-mix(in srgb, var(--color-bg) 85%, transparent);
+    backdrop-filter: blur(12px) saturate(1.4);
   }
 
   /* Bilder und Figuren im Inhalt */
