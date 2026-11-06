@@ -28,6 +28,21 @@ Oder nur einzelne Module (Tokens werden für Komponenten benötigt):
 <link rel="stylesheet" href="css/components/button.css" />
 ```
 
+### Per CDN (eine einzige Datei)
+
+Für Webseiten ohne Build gibt es eine gebündelte Datei ohne `@import`, inklusive aller Themes:
+
+```html
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/nekuro22/css-sample@main/dist/toolkit.min.css"
+/>
+```
+
+Für produktive Seiten lieber auf einen festen Stand pinnen (Commit oder Tag statt `@main`). Das Bundle wird mit `npm run build` neu erzeugt.
+
+> Hinweis: Das Toolkit gestaltet Layout und Komponenten über Klassen (`.container`, `.navbar`, `.card` …). Reines HTML ohne Klassen bekommt nur Reset, Typografie und Farben.
+
 Eine vollständige Beispielseite findest du unter [`examples/index.html`](examples/index.html).
 
 ## Struktur
