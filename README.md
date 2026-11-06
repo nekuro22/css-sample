@@ -41,7 +41,11 @@ Für Webseiten ohne Build gibt es eine gebündelte Datei ohne `@import`, inklusi
 
 Für produktive Seiten lieber auf einen festen Stand pinnen (Commit oder Tag statt `@main`). Das Bundle wird mit `npm run build` neu erzeugt.
 
-> Hinweis: Das Toolkit gestaltet Layout und Komponenten über Klassen (`.container`, `.navbar`, `.card` …). Reines HTML ohne Klassen bekommt nur Reset, Typografie und Farben.
+### Ohne Klassen
+
+Normales, semantisches HTML sieht ohne eine einzige Klasse gut aus. Das Toolkit gestaltet `<body>` als zentrierten Rahmen sowie `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, Listen, Bilder, Tabellen, Formulare, Buttons, `<details>` und `<dialog>` direkt über Element-Selektoren ([`css/base/classless.css`](css/base/classless.css)). Beispiel: [`examples/classless.html`](examples/classless.html).
+
+Die Regeln haben Spezifität 0. Klassen wie `.btn`, `.card` oder `.container` und eigene Styles überschreiben sie jederzeit. Wer den Seitenrahmen selbst baut, setzt `<body class="fluid">`.
 
 Eine vollständige Beispielseite findest du unter [`examples/index.html`](examples/index.html).
 
@@ -55,6 +59,7 @@ css-toolkit/
 │   │   ├── variables.css     # Design-Tokens (hier anpassen)
 │   │   ├── reset.css         # Moderner CSS-Reset
 │   │   ├── typography.css    # Überschriften, Fließtext, Code, Zitate
+│   │   ├── classless.css     # Klassenloses Styling für semantisches HTML
 │   │   └── accessibility.css # Fokus, Skip-Link, Screenreader-Hilfen
 │   ├── layout/
 │   │   ├── container.css     # Zentrierter Inhaltsbereich
