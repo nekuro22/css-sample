@@ -1,0 +1,29 @@
+{
+  "name": "css-toolkit",
+  "version": "1.0.0",
+  "description": "Modulare, abhängigkeitsfreie CSS-Sammlung mit Design-Tokens, Komponenten, Utilities, Dark Mode und Druckstyles.",
+  "license": "MIT",
+  "author": "nekuro22",
+  "private": true,
+  "keywords": [
+    "css",
+    "css-variables",
+    "design-tokens",
+    "dark-mode",
+    "components",
+    "utilities",
+    "accessibility",
+    "cascade-layers"
+  ],
+  "scripts": {
+    "lint": "stylelint \"css/**/*.css\"",
+    "lint:fix": "stylelint \"css/**/*.css\" --fix",
+    "format": "prettier --write \"css/**/*.css\" \"examples/**/*.html\"",
+    "format:check": "prettier --check \"css/**/*.css\" \"examples/**/*.html\""
+  },
+  "devDependencies": {
+    "prettier": "^3.3.0",
+    "stylelint": "^16.10.0",
+    "stylelint-config-standard": "^36.0.1"
+  }
+}
