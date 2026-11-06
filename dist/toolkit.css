@@ -385,19 +385,29 @@
     margin: 0;
   }
 
-  /* Überschrift in der Navigation = Titel/Marke links, Links rechts */
-  :where(nav li:has(> :is(h1, h2, h3))) {
+  /* <h1> in der Navigation = Titel/Marke links, Links rechts */
+  :where(nav li:has(> h1)) {
     margin-inline-end: auto;
   }
 
-  :where(nav) :is(h1, h2, h3) {
+  :where(nav) h1 {
     margin: 0;
     font-size: var(--font-size-xl);
+    line-height: var(--line-height-tight);
     letter-spacing: -0.01em;
+  }
+
+  /* Überschriften um Links herum (z. B. <li><h2><a>) wirken wie normale Nav-Links */
+  :where(nav) :is(h2, h3, h4, h5, h6) {
+    margin: 0;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-tight);
   }
 
   :where(nav) a {
     padding-block: var(--space-1);
+    line-height: var(--line-height-tight);
     font-weight: var(--font-weight-medium);
     color: var(--color-text);
     text-decoration: none;
