@@ -45,7 +45,7 @@ Für produktive Seiten lieber auf einen festen Stand pinnen (Commit oder Tag sta
 
 Normales, semantisches HTML sieht ohne eine einzige Klasse gut aus. Das Toolkit gestaltet `<body>` als zentrierten Rahmen sowie `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, Listen, Bilder, Tabellen, Formulare, Buttons, `<details>`, `<dialog>` und Begriffe (`<dfn>`, optional mit Hover-Erklärung über `data-definition`) direkt über Element-Selektoren ([`css/base/classless.css`](css/base/classless.css)). Beispiel: [`examples/classless.html`](examples/classless.html).
 
-Die Regeln haben Spezifität 0. Klassen wie `.btn`, `.card` oder `.container` und eigene Styles überschreiben sie jederzeit. Wer den Seitenrahmen selbst baut, setzt `<body class="fluid">`.
+Die Navigation funktioniert wahlweise mit `<nav>` oder (wenn nur `div` erlaubt ist) mit `<div class="header"><div class="nav">…</div></div>`; der Titel (`<h1>`) steht links, die Links rechts. Die Regeln haben Spezifität 0. Klassen wie `.btn`, `.card` oder `.container` und eigene Styles überschreiben sie jederzeit. Wer den Seitenrahmen selbst baut, setzt `<body class="fluid">`.
 
 Eine vollständige Beispielseite findest du unter [`examples/index.html`](examples/index.html).
 

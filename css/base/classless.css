@@ -21,7 +21,7 @@
   }
 
   /* Kopfbereich und Fußbereich */
-  :where(body > header) {
+  :where(body > :is(header, .header)) {
     margin-block-end: var(--space-8);
     padding-block: var(--space-6) var(--space-4);
     border-block-end: 1px solid var(--color-border);
@@ -58,30 +58,31 @@
     color: var(--color-text-muted);
   }
 
-  /* Navigation: Listen werden zur horizontalen Leiste ohne Aufzählungszeichen */
-  :where(header, nav, footer) :is(ul, ol) {
+  /* Navigation: <nav> oder <div class="nav"> – Listen werden zur horizontalen Leiste.
+     Kopfbereich: <header> oder <div class="header"> */
+  :where(header, .header, nav, .nav, footer) :is(ul, ol) {
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
-  :where(nav) :is(ul, ol) {
+  :where(nav, .nav) :is(ul, ol) {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: var(--space-1) var(--space-6);
   }
 
-  :where(nav li + li) {
+  :where(:is(nav, .nav) li + li) {
     margin: 0;
   }
 
   /* <h1> in der Navigation = Titel/Marke links, Links rechts */
-  :where(nav li:has(> h1)) {
+  :where(:is(nav, .nav) li:has(> h1)) {
     margin-inline-end: auto;
   }
 
-  :where(nav) h1 {
+  :where(nav, .nav) h1 {
     margin: 0;
     font-size: var(--font-size-xl);
     line-height: var(--line-height-tight);
@@ -89,14 +90,14 @@
   }
 
   /* Überschriften um Links herum (z. B. <li><h2><a>) wirken wie normale Nav-Links */
-  :where(nav) :is(h2, h3, h4, h5, h6) {
+  :where(nav, .nav) :is(h2, h3, h4, h5, h6) {
     margin: 0;
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-medium);
     line-height: var(--line-height-tight);
   }
 
-  :where(nav) a {
+  :where(nav, .nav) a {
     padding-block: var(--space-1);
     line-height: var(--line-height-tight);
     font-weight: var(--font-weight-medium);
@@ -108,13 +109,13 @@
       background-size var(--transition-base);
   }
 
-  :where(nav) a:is(:hover, :focus-visible, [aria-current]) {
+  :where(nav, .nav) a:is(:hover, :focus-visible, [aria-current]) {
     color: var(--color-primary);
     background-size: 100% 2px;
   }
 
   /* Kopfbereich mit Navigation wird zur fixierten Leiste mit Milchglas */
-  :where(body > header:has(> nav)) {
+  :where(body > :is(header, .header):has(> :is(nav, .nav))) {
     position: sticky;
     inset-block-start: 0;
     z-index: var(--z-sticky);
